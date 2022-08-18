@@ -8,36 +8,36 @@ const managerQuestions = [
     {
         type: 'input',
         message: 'What is your name?',
-        name: 'name',
+        name: 'managerName',
     },
     {
         type: 'input',
         message: 'What is employee ID?',
-        name: 'role',
+        name: 'managerID',
     },
     {
         type: 'input',
         message: 'Please enter your email address.',
-        name: 'email',
+        name: 'managerEmail',
     },
     {
         type: 'input',
-        message: 'Please enter your GitHub username.',
-        name: 'username',
+        message: 'Please enter your office number.',
+        name: 'managerOffice',
     },
 ];
 
 const teamQuestions = [
     {
-        type: 'input',
-        message: "What is your team member's name?",
-        name: 'name',
+        type: 'list',
+        message: "Select the type of team member would you like to add.",
+        name: 'role',
+        choices: ['Engineer', 'Intern', 'Done adding members'],
     },
     {
-        type: 'list',
-        message: "What is this team member's role?",
-        name: 'role',
-        choices: ['Engineer', 'Marketing', 'Sales', 'Permitting', 'Intern'],
+        type: 'input',
+        message: "What is this team member's name?",
+        name: 'name',
     },
     {
         type: 'input',
@@ -67,3 +67,7 @@ function init() {
 
 // Function call to initialize app
 init();
+
+function generateProfile (data) {
+
+}
