@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 
-function createManager () {
+function createManager (data) {
     inquirer.prompt(managerQuestions).then((res) => {
         const managerData = new Manager(
             res.name,
@@ -9,7 +9,8 @@ function createManager () {
             res.office
         );
     generatedTeam.push(managerData);
-    createEmployee();
+    console.log(generatedTeam);
+    createTeam();
     });
 }
 
@@ -21,8 +22,9 @@ function createEngineer() {
             res.email,
             res.github
         );
-        createEngineer();
-        generatedTeam.push(engineerData);
+    generatedTeam.push(engineerData);
+    console.log(generatedTeam);
+    createTeam();
     });
 }
 
@@ -34,10 +36,10 @@ function createIntern() {
             res.email,
             res.school
         );
-        createIntern();
-        generatedTeam.push(internData);
+    generatedTeam.push(internData);
+    console.log(generatedTeam);
+    createTeam();
     });
 }
-
 
 module.export = {createManager, createEngineer, createIntern}

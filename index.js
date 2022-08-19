@@ -2,10 +2,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 import * as teamFx from './src/team.js'
 var generatedTeam = [];
 
-// Array containing questions for inquirer
+// Array containing questions for createManager function
 const managerQuestions = [
     {
         type: 'input',
@@ -29,6 +31,7 @@ const managerQuestions = [
     },
 ];
 
+// Array containing questions for createEngineer function
 const engQuestions = [
     {
         type: 'input',
@@ -47,6 +50,25 @@ const engQuestions = [
     },
 ];
 
+// Array containing questions for createIntern function
+const intQuestions = [
+    {
+        type: 'input',
+        message: "What is this team member's name?",
+        name: 'name',
+    },
+    {
+        type: 'input',
+        message: 'Please enter their email address.',
+        name: 'email',
+    },
+    {
+        type: 'input',
+        message: 'Please enter the name of their school.',
+        name: 'school',
+    },
+];
+
 const menu =
     {
         type: 'list',
@@ -55,6 +77,28 @@ const menu =
         choices: ['Engineer', 'Intern', 'Done adding members'],
     };
 
+function createTeam () {
+    inquirer.prompt(menu).then((res) => {
+        writeToFile('index.html', generateProfile(res));
+        switch(res){
+            case 'Engineer':
+                return createEngineer();
+            case 'Intern':
+                return createIntern();
+            case 'Done adding members':
+                return createHTML(generatedTeam);
+        }
+    });
+}
+
+function createHTML (team) {
+    var htmlContent = ``
+}
+
+function createCards (team) {
+
+}
+    
 // Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFileSync(fileName, data, (err) =>
@@ -64,24 +108,9 @@ function writeToFile(fileName, data) {
 
 // Function to initialize app
 function init() {
-    inquirer.prompt(managerQuestions).then((res) => {
-        writeToFile('index.html', generateProfile(res));
-    });
+    createManager();
 }
 
 // Function call to initialize app
 init();
 
-function createTeam () {
-    inquirer.prompt(menu).then((res) => {
-        writeToFile('index.html', generateProfile(res));
-        switch(res){
-            case 'Engineer':
-              return createEngineer();
-            case 'Intern':
-              return createIntern();
-            case 'Done adding members':
-              return writeToFile(generatedTeam);
-        }
-    });
-}

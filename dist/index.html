@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./assets/images/icon.png">
+    <title>Team Profile</title>
+</head>
+<body>
+    <header class="banner">
+        <h1 class="display-3">Team Profile</h1>
+    </header>
+    <section class="container">
+        <div class="row align-items-center justify-content-center">
+        <div class="card col-3">
+            <ul class ="list-group">
+                <h3>${manager.name}</h3>
+                <h5>${manager.role}</h5>
+                <li class="list-group-item">Employee ID: ${manager.id}</li>
+                <li class="list-group-item">Email: ${manager.email}</li>
+                <li class="list-group-item">Office #: ${manager.office}</li>
+            </ul>
+        </div>
+        <div class="card col-3">
+            <ul class ="list-group">
+                <h3>${engineer.name}</h3>
+                <h5>${engineer.role}</h5>
+                <li class="list-group-item">Employee ID: ${engineer.id}</li>
+                <li class="list-group-item">Email: ${engineer.email}</li>
+                <li class="list-group-item">GitHub: ${engineer.github}</li>
+            </ul>
+        </div>
+        <div class="card col-3">
+            <ul class ="list-group">
+                <h3>${engineer.name}</h3>
+                <h5>${engineer.role}</h5>
+                <li class="list-group-item">Employee ID: ${engineer.id}</li>
+                <li class="list-group-item">Email: ${engineer.email}</li>
+                <li class="list-group-item">GitHub: ${engineer.github}</li>
+            </ul>
+        </div>
+        <div class="card col-3">
+            <ul class ="list-group">
+                <h3>${intern.name}</h3>
+                <h5>${intern.role}</h5>
+                <li class="list-group-item">Employee ID: ${intern.id}</li>
+                <li class="list-group-item">Email: ${intern.email}</li>
+                <li class="list-group-item">School: ${intern.school}</li>
+            </ul>
+        </div>
+        </div>
+    </section>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
