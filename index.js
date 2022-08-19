@@ -29,13 +29,7 @@ const managerQuestions = [
     },
 ];
 
-const empQuestions = [
-    {
-        type: 'list',
-        message: "Select the type of team member would you like to add.",
-        name: 'role',
-        choices: ['Engineer', 'Intern', 'Done adding members'],
-    },
+const engQuestions = [
     {
         type: 'input',
         message: "What is this team member's name?",
@@ -52,6 +46,14 @@ const empQuestions = [
         name: 'username',
     },
 ];
+
+const menu =
+    {
+        type: 'list',
+        message: "Select the type of team member would you like to add.",
+        name: 'role',
+        choices: ['Engineer', 'Intern', 'Done adding members'],
+    };
 
 // Function to write README file
 function writeToFile(fileName, data) {
@@ -70,6 +72,16 @@ function init() {
 // Function call to initialize app
 init();
 
-function generateTeam () {
-
+function createTeam () {
+    inquirer.prompt(menu).then((res) => {
+        writeToFile('index.html', generateProfile(res));
+        switch(res){
+            case 'Engineer':
+              return createEngineer();
+            case 'Intern':
+              return createIntern();
+            case 'Done adding members':
+              return writeToFile(generatedTeam);
+        }
+    });
 }

@@ -13,17 +13,31 @@ function createManager () {
     });
 }
 
-function createEmployee() {
+function createEngineer() {
     inquirer.prompt(empQuestions).then((res) => {
-        const managerData = new Manager(
+        const engineerData = new Engineer(
             res.name,
             res.id,
             res.email,
-            res.office
+            res.github
         );
-        createEmployee();
-        generatedTeam.push(managerData);
+        createEngineer();
+        generatedTeam.push(engineerData);
     });
 }
 
-module.export = {createManager, createEmployee}
+function createIntern() {
+    inquirer.prompt(empQuestions).then((res) => {
+        const internData = new Intern(
+            res.name,
+            res.id,
+            res.email,
+            res.school
+        );
+        createIntern();
+        generatedTeam.push(internData);
+    });
+}
+
+
+module.export = {createManager, createEngineer, createIntern}
