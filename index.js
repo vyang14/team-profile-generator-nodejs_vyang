@@ -1,7 +1,9 @@
 // Importing packages needed for this application
 const fs = require('fs');
-const path = require('path');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+import * as teamFx from './src/team.js'
+var generatedTeam = [];
 
 // Array containing questions for inquirer
 const managerQuestions = [
@@ -12,7 +14,7 @@ const managerQuestions = [
     },
     {
         type: 'input',
-        message: 'What is employee ID?',
+        message: 'What is your employee ID?',
         name: 'managerID',
     },
     {
@@ -27,7 +29,7 @@ const managerQuestions = [
     },
 ];
 
-const teamQuestions = [
+const empQuestions = [
     {
         type: 'list',
         message: "Select the type of team member would you like to add.",
@@ -68,6 +70,6 @@ function init() {
 // Function call to initialize app
 init();
 
-function generateProfile (data) {
+function generateTeam () {
 
 }
