@@ -7,7 +7,7 @@ const Intern = require('./lib/Intern');
 
 var generatedTeam = [];
 
-// Array containing questions for createManager function
+// Array of objects containing questions for createManager function
 const managerQuestions = [
     {
         type: 'input',
@@ -35,7 +35,7 @@ const managerQuestions = [
     },
 ];
 
-// Array containing questions for createEngineer function
+// Array of objects containing questions for createEngineer function
 const engQuestions = [
     {
         type: 'input',
@@ -64,7 +64,7 @@ const engQuestions = [
     },
 ];
 
-// Array containing questions for createIntern function
+// Array of objects containing questions for createIntern function
 const intQuestions = [
     {
         type: 'input',
@@ -92,7 +92,7 @@ const intQuestions = [
     },
 ];
 
-const menu =
+const menu = // Object containing main menu options
     {
         type: 'list',
         message: "Select the type of team member would you like to add.",
@@ -100,9 +100,9 @@ const menu =
         choices: ['Engineer', 'Intern', 'Done adding members'],
     };
 
+// Function to call inquirer with option to add additional members
 function createTeam () {
     inquirer.prompt(menu).then((res) => {
-        // writeToFile('index.html', generateProfile(res));
         console.log(res.role);
         switch(res.role){
             case 'Engineer':
@@ -115,6 +115,8 @@ function createTeam () {
         }
     });
 }
+
+// Function to call inquirer with manager questions
 function createManager () {
     inquirer.prompt(managerQuestions).then((res) => {
         const managerData = new Manager(
@@ -129,6 +131,7 @@ function createManager () {
     });
 }
 
+// Function to call inquirer with engineer questions
 function createEngineer() {
     inquirer.prompt(engQuestions).then((res) => {
         const engineerData = new Engineer(
@@ -143,6 +146,7 @@ function createEngineer() {
     });
 }
 
+// Function to call inquirer with intern questions
 function createIntern() {
     inquirer.prompt(intQuestions).then((res) => {
         const internData = new Intern(
@@ -164,6 +168,7 @@ function writeToFile(data) {
     return;
 }
 
+// Function for boiler plate HTML text and inserting card info
 function createHTML (team) {
     var htmlContent = `<!DOCTYPE html>
     <html lang="en-us">
@@ -192,6 +197,7 @@ function createHTML (team) {
     return writeToFile(htmlContent);
 }
 
+// Function to create HTML cards containing teammate info
 function createCard (team) {
     console.log(`team length = ${team.length}`)
     console.log(team); 
@@ -199,7 +205,7 @@ function createCard (team) {
     for (let i = 0; i < team.length; i++) {
         console.log(`i = ${i}`);
         if (team[i].getRole() === 'Manager'){
-                cardContent += `<div class="card col-4">
+                cardContent += `<div class="card col-3">
                 <ul class ="list-group">
                     <h3>${team[i].name}</h3>
                     <h5>Manager 💼</h5>
@@ -209,7 +215,7 @@ function createCard (team) {
                 </ul>
             </div>`;
         } else if (team[i].getRole() === 'Engineer'){
-                cardContent +=  `<div class="card col-4">
+                cardContent +=  `<div class="card col-3">
                 <ul class ="list-group">
                     <h3>${team[i].name}</h3>
                     <h5>Engineer 🦾</h5>
@@ -219,7 +225,7 @@ function createCard (team) {
                 </ul>
             </div>`
         } else if (team[i].getRole() === 'Intern'){ 
-                cardContent +=  `<div class="card col-4">
+                cardContent +=  `<div class="card col-3">
                 <ul class ="list-group">
                     <h3>${team[i].name}</h3>
                     <h5>Intern 🔰</h5>
