@@ -13,25 +13,21 @@ const managerQuestions = [
         type: 'input',
         message: 'What is your name?',
         name: 'name',
-        default: 'Bruce Wayne'
     },
     {
         type: 'input',
         message: 'What is your employee ID?',
         name: 'id',
-        default: '1'
     },
     {
         type: 'input',
         message: 'Please enter your email address.',
         name: 'email',
-        default: 'bruce@wayne.com'
     },
     {
         type: 'input',
         message: 'Please enter your office number.',
         name: 'office',
-        default: '1'
     },
 ];
 
@@ -41,13 +37,11 @@ const engQuestions = [
         type: 'input',
         message: "What is this team member's name?",
         name: 'name',
-        default: 'Richard Grayson'
     },
     {
         type: 'input',
         message: 'What is their employee ID?',
         name: 'id',
-        default: '2',
         validate: (res) => {
             if (isNaN(res)) {
                 return 'Employee IDs are numbers only.'
@@ -59,13 +53,11 @@ const engQuestions = [
         type: 'input',
         message: 'Please enter their email address.',
         name: 'email',
-        default: 'richard@wanye.com',
-    },
+      },
     {
         type: 'input',
         message: 'Please enter their GitHub username.',
         name: 'github',
-        default: 'notRobin12'
     },
 ];
 
@@ -75,25 +67,21 @@ const intQuestions = [
         type: 'input',
         message: "What is this team member's name?",
         name: 'name',
-        default: 'Timothy Drake'
     },
     {
         type: 'input',
         message: 'What is their employee ID?',
         name: 'id',
-        default: '3'
     },
     {
         type: 'input',
         message: 'Please enter their email address.',
         name: 'email',
-        default: 'timothy@wanye.com'
     },
     {
         type: 'input',
         message: 'Please enter the name of their school.',
         name: 'school',
-        default: 'Gotham High'
     },
 ];
 

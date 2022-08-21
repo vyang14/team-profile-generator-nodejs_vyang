@@ -31,7 +31,6 @@ After installation, run 'node index.js' in terminal, then follow the prompts in 
 
 [Walkthrough Video](./assets/walkthrough.mp4)
 
-
 > ## Page Preview: ![Preview](./assets/preview.png)
 
 ## Question
