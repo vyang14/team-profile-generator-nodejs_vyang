@@ -60,9 +60,6 @@ const engQuestions = [
         message: 'Please enter their email address.',
         name: 'email',
         default: 'richard@wanye.com',
-        validate: res => {
-            const isEmail = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/'
-        }
     },
     {
         type: 'input',
@@ -111,14 +108,12 @@ const menu = // Object containing main menu options
 // Function to call inquirer with option to add additional members
 function createTeam () {
     inquirer.prompt(menu).then((res) => {
-        console.log(res.role);
         switch(res.role){
             case 'Engineer':
                 return createEngineer();
             case 'Intern':
                 return createIntern();
             case 'Done adding members':
-                console.log(generatedTeam);
                 return createHTML(generatedTeam);
         }
     });
@@ -134,7 +129,6 @@ function createManager () {
             res.office
         );
     generatedTeam.push(managerData);
-    console.log(generatedTeam);
     createTeam();
     });
 }
@@ -149,7 +143,6 @@ function createEngineer() {
             res.github
         );
     generatedTeam.push(engineerData);
-    console.log(generatedTeam);
     createTeam();
     });
 }
@@ -164,7 +157,6 @@ function createIntern() {
             res.school
         );
     generatedTeam.push(internData);
-    console.log(generatedTeam);
     createTeam();
     });
 }
@@ -207,11 +199,8 @@ function createHTML (team) {
 
 // Function to create HTML cards containing teammate info
 function createCard (team) {
-    console.log(`team length = ${team.length}`)
-    console.log(team); 
     var cardContent = '';
     for (let i = 0; i < team.length; i++) {
-        console.log(`i = ${i}`);
         if (team[i].getRole() === 'Manager'){
                 cardContent += `<div class="card col-3">
                 <ul class ="list-group">
