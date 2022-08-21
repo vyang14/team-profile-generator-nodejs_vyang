@@ -47,14 +47,22 @@ const engQuestions = [
         type: 'input',
         message: 'What is their employee ID?',
         name: 'id',
-        default: '2'
+        default: '2',
+        validate: (res) => {
+            if (isNaN(res)) {
+                return 'Employee IDs are numbers only.'
+            }
+            return true;
+        }
     },
     {
         type: 'input',
         message: 'Please enter their email address.',
         name: 'email',
-        default: 'richard@wanye.com'
-
+        default: 'richard@wanye.com',
+        validate: res => {
+            const isEmail = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/'
+        }
     },
     {
         type: 'input',
